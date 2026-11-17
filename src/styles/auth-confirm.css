@@ -1,0 +1,499 @@
+/* =========================================
+   AUTHCONFIRM v1.1.0
+   Main Stylesheet
+========================================= */
+
+
+/* =========================================
+   1. THEME VARIABLES
+========================================= */
+
+.ac-modal {
+    --ac-primary: #168653;
+    --ac-danger: #c92d45;
+    --ac-background: #ffffff;
+    --ac-text: #222222;
+    --ac-muted: #777777;
+    --ac-border: #e5e5e5;
+
+    color: var(--ac-text);
+    background: var(--ac-background);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ac-modal[data-theme="light"] {
+    --ac-background: #ffffff;
+    --ac-text: #222222;
+    --ac-muted: #777777;
+    --ac-border: #e5e5e5;
+}
+
+.ac-modal[data-theme="dark"] {
+    --ac-background: #1e1e1e;
+    --ac-text: #f5f5f5;
+    --ac-muted: #aaaaaa;
+    --ac-border: #383838;
+}
+
+
+/* =========================================
+   2. OVERLAY
+========================================= */
+
+.ac-overlay,
+.ac-overlay * {
+    box-sizing: border-box;
+}
+
+.ac-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--ac-z, 9999);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.48);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ac-overlay[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   3. MODAL CONTAINER
+========================================= */
+
+.ac-modal {
+    width: 100%;
+    max-width: 480px;
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--ac-background);
+    color: var(--ac-text);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    animation: ac-enter 0.16s ease-out;
+}
+
+
+/* =========================================
+   4. ICON
+========================================= */
+
+.ac-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 58px;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    color: var(--ac-primary);
+    background: #e8f8ef;
+}
+
+.ac-icon-symbol,
+.ac-otp-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ac-icon-symbol svg,
+.ac-otp-icon svg {
+    display: block;
+    width: 34px;
+    height: 34px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================
+   5. TITLE AND MESSAGE
+========================================= */
+
+.ac-title {
+    margin: 0 0 10px;
+    color: var(--ac-text);
+    font-size: 20px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.ac-message {
+    margin: 0;
+    color: var(--ac-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   6. ACTION BUTTONS
+========================================= */
+
+.ac-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 0;
+    border: 0;
+}
+
+.ac-actions button {
+    width: auto;
+    min-width: 100px;
+    min-height: 44px;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        opacity 0.18s ease,
+        filter 0.18s ease;
+}
+
+.ac-cancel {
+    color: var(--ac-primary);
+    background: transparent;
+    border: 1px solid var(--ac-primary);
+}
+
+.ac-confirm {
+    color: #ffffff;
+    background: var(--ac-primary);
+    border: 1px solid var(--ac-primary);
+}
+
+.ac-cancel:hover {
+    background: rgba(22, 134, 83, 0.07);
+}
+
+.ac-confirm:hover {
+    filter: brightness(0.92);
+}
+
+
+/* Danger state */
+
+.ac-is-danger .ac-confirm {
+    color: #ffffff;
+    background: var(--ac-danger);
+    border-color: var(--ac-danger);
+}
+
+
+/* Success state */
+
+.ac-is-success .ac-icon {
+    color: #168653;
+    background: #e8f8ef;
+}
+
+.ac-is-success .ac-confirm {
+    background: #168653;
+    border-color: #168653;
+}
+
+
+/* Disabled buttons */
+
+.ac-actions button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+
+/* =========================================
+   7. ERROR MESSAGE
+========================================= */
+
+.ac-error {
+    margin-top: 14px;
+    padding: 10px 12px;
+    color: var(--ac-danger);
+    background: #fff0f2;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.ac-error[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   8. OTP CONTAINER
+========================================= */
+
+.ac-otp-container {
+    width: 100%;
+    margin: 20px 0;
+    }
+
+/* =========================================
+   11. OTP MODAL CUSTOMIZATION
+========================================= */
+
+
+/* =========================================
+   OTP MODAL CUSTOMIZATION
+========================================= */
+
+.ac-is-otp.ac-modal {
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+/* Center icon */
+.ac-is-otp .ac-icon {
+    margin: 0 auto 20px;
+}
+
+/* Center title */
+.ac-is-otp .ac-title, .ac-is-success .ac-title {
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Center message */
+.ac-is-otp .ac-message, .ac-is-success .ac-message {
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Center OTP inputs */
+.ac-is-otp .ac-otp-inputs {
+    justify-content: center;
+}
+
+/* Verify button */
+.ac-is-otp .ac-confirm {
+    min-height: 46px;
+    border-radius: 10px;
+}
+
+/* OTP inputs */
+
+.ac-otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+.ac-is-otp .ac-title {
+    font-size: 24px;
+    text-align: center;
+}
+
+.ac-is-otp .ac-message {
+    text-align: center;
+    font-size: 14px;
+}
+.ac-otp-inputs input,
+.ac-otp-input {
+    width: 42px;
+    height: 48px;
+
+    min-width: 0;
+
+    padding: 0;
+
+    border: 1px solid #d8dce2;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+
+    text-align: center;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ac-otp-inputs input:focus,
+.ac-otp-input:focus {
+    border-color: var(--ac-primary);
+
+    box-shadow: 0 0 0 2px rgba(22, 134, 83, 0.16);
+}
+
+.ac-otp-inputs input:disabled,
+.ac-otp-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* OTP error */
+
+.ac-otp-error {
+    min-height: 20px;
+    margin: 12px 0 4px;
+    color: var(--ac-danger);
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   9. OTP RESEND
+========================================= */
+
+.ac-otp-resend-container,
+.ac-otp-resend-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.ac-otp-resend {
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--ac-primary);
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.ac-otp-resend:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.ac-otp-countdown {
+    color: var(--ac-muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   10. OTP MODAL STATE
+========================================= */
+
+.ac-is-otp .ac-icon {
+    color: var(--ac-primary);
+}
+
+
+/* =========================================
+   11. FOCUS ACCESSIBILITY
+========================================= */
+
+.ac-actions button:focus-visible,
+.ac-otp-inputs input:focus-visible {
+    outline: 3px solid rgba(22, 134, 83, 0.25);
+    outline-offset: 2px;
+}
+
+
+/* =========================================
+   12. ANIMATION
+========================================= */
+
+@keyframes ac-enter {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   13. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 600px) {
+
+    .ac-modal {
+        padding: 24px 20px;
+    }
+
+    .ac-title {
+        font-size: 16px;
+    }
+
+    .ac-actions {
+        gap: 10px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .ac-actions {
+        flex-direction: column-reverse;
+    }
+
+    .ac-actions button {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .ac-modal {
+        padding: 20px 16px;
+    }
+
+    .ac-otp-inputs {
+        gap: 5px;
+    }
+
+    .ac-otp-inputs input,
+    .ac-otp-input {
+        width: 40px;
+        height: 40px;
+
+        font-size: 24px;
+    }
+
+}

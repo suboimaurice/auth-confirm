@@ -1,0 +1,33 @@
+{
+  "name": "auth-confirm",
+  "version": "1.0.0",
+  "description": "Framework-free login, logout and OTP confirmation overlays with customizable notifications.",
+  "type": "module",
+  "main": "./src/auth-confirm.js",
+  "module": "./src/auth-confirm.js",
+  "exports": {
+    ".": {
+      "import": "./src/auth-confirm.js",
+      "default": "./src/auth-confirm.js"
+    },
+    "./style.css": "./src/styles/auth-confirm.css"
+  },
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "keywords": [
+    "authentication",
+    "confirmation-dialog",
+    "otp",
+    "login",
+    "logout",
+    "vanilla-javascript",
+    "modal"
+  ],
+  "license": "MIT"
+}

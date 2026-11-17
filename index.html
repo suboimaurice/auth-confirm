@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Add professional login and logout confirmation dialogs, OTP verification, success notifications and request timeout handling to your JavaScript projects with AuthConfirm."
+    >
+
+    <meta name="keywords" content="JavaScript authentication modal, JavaScript confirmation dialog, OTP verification JavaScript, vanilla JavaScript modal library">
+
+    <meta name="author" content="AuthConfirm">
+
+    <meta name="robots" content="index, follow">
+
+    <!-- Replace with the actual deployed URL -->
+    <link rel="canonical" href="https://your-domain.com/">
+    <link rel="stylesheet" href="auth-confirm-v1.1.0/assets/css/landing.css">
+
+    <meta property="og:type" content="website">
+
+    <meta
+        property="og:title"
+        content="AuthConfirm - Authentication Modals Made Simple"
+    >
+
+    <meta
+        property="og:description"
+        content="A lightweight JavaScript library for authentication confirmations, OTP verification and success notifications."
+    >
+
+    <meta
+        property="og:url"
+        content="https://your-domain.com/"
+    >
+
+    <meta
+        property="og:image"
+        content="https://your-domain.com/assets/images/og-image.png"
+    >
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta
+        name="twitter:title"
+        content="AuthConfirm - Authentication Modals Made Simple"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Simplify authentication interactions with lightweight vanilla JavaScript."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://your-domain.com/assets/images/og-image.png"
+    >
+
+    <title>
+        AuthConfirm - Lightweight JavaScript Authentication Modals
+    </title>
+
+    <link rel="stylesheet" href="assets/css/landing.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AuthConfirm",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "description": "A lightweight vanilla JavaScript library for login and logout confirmations, OTP verification, success notifications and timeout handling.",
+        "softwareVersion": "1.1.0",
+        "programmingLanguage": "JavaScript"
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+
+        <nav class="navbar container">
+
+            <a href="#" class="logo">
+                <span class="logo-icon">A</span>
+                AuthConfirm<span class="version">v1.1.0</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                ☰
+            </button>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="#features">Features</a>
+
+                <a href="#how-it-works">How It Works</a>
+
+                <a href="#example">Example</a>
+
+                <button
+    class="theme-toggle"
+    id="themeToggle"
+    type="button"
+    aria-label="Switch to dark mode"
+    title="Switch theme"
+>
+    <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+    </svg>
+
+    <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z"></path>
+    </svg>
+</button>
+
+                <a href="#get-started" class="nav-button">
+                    Get Started
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero" data-animate="zoom-in">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="eyebrow">
+                        VANILLA JAVASCRIPT LIBRARY
+                    </span>
+
+                    <h1>
+                        Authentication interactions,
+                        <span>made simple.</span>
+                    </h1>
+
+                    <p>
+                        Add beautiful login and logout confirmations,
+                        OTP verification and success notifications
+                        to your applications with a lightweight,
+                        reusable JavaScript library.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a href="#get-started" class="btn btn-primary">
+                            Get Started
+                        </a>
+
+                        <a href="#example" class="btn btn-outline">
+                            Explore Example
+                        </a>
+
+                    </div>
+
+                    <div class="hero-meta">
+                        <span>✓ No frameworks required</span>
+                        <span>✓ Lightweight</span>
+                        <span>✓ Modular architecture</span>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card" data-animate="blur-in">
+
+                    <div class="card-header">
+                        <span class="status-dot"></span>
+                        Authentication Preview
+                    </div>
+
+                    <div class="preview-icon">✓</div>
+
+                    <h3>Login Successful</h3>
+
+                    <p>
+                        You have successfully logged in.
+                    </p>
+
+                    <button class="preview-button" type="button">
+                        Continue
+                    </button>
+
+                    <div class="preview-footer">
+                        Powered by AuthConfirm
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Features -->
+        <section class="section" id="features">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">FEATURES</span>
+
+                    <h2 data-animate="fade-up">Everything you need for authentication feedback.</h2>
+
+                    <p>
+                        Handle common authentication interactions
+                        without building every modal from scratch.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-grid">
+
+                    <article class="feature-card" data-animate="fade-left">
+                        <div class="feature-icon">✓</div>
+
+                        <h3>Login & Logout</h3>
+
+                        <p>
+                            Display clear confirmation dialogs before
+                            executing login and logout operations.
+                        </p>
+                    </article>
+
+
+                    <article class="feature-card" data-animate="fade-up">
+                        <div class="feature-icon">⌁</div>
+
+                        <h3>OTP Verification</h3>
+
+                        <p>
+                            Provide an OTP interface with verification,
+                            resend controls and countdown functionality.
+                        </p>
+                    </article>
+
+
+                    <article class="feature-card" data-animate="fade-right">
+                        <div class="feature-icon">✦</div>
+
+                        <h3>Success Notifications</h3>
+
+                        <p>
+                            Automatically display success messages
+                            after completed authentication operations.
+                        </p>
+                    </article>
+
+
+                    <article class="feature-card" data-animate="fade-left">
+                        <div class="feature-icon">◷</div>
+
+                        <h3>Timeout Handling</h3>
+
+                        <p>
+                            Handle slow backend responses with
+                            configurable request timeouts.
+                        </p>
+                    </article>
+
+
+                    <article class="feature-card" data-animate="fade-up">
+                        <div class="feature-icon">◐</div>
+
+                        <h3>Theme Customization</h3>
+
+                        <p>
+                            Switch between light, dark and automatic
+                            themes with customizable primary colours.
+                        </p>
+                    </article>
+
+
+                    <article class="feature-card" data-animate="fade-right">
+                        <div class="feature-icon">⌘</div>
+
+                        <h3>Framework Independent</h3>
+
+                        <p>
+                            Integrate AuthConfirm into projects using
+                            vanilla JavaScript without requiring a framework.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- How it works -->
+        <section class="section section-muted steps" id="how-it-works">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">SIMPLE INTEGRATION</span>
+
+                    <h2 data-animate="fade-up">Get started in three steps.</h2>
+
+                </div>
+
+
+                <div class="steps-grid">
+
+                    <article class="step" data-animate="blur-in">
+                        <span data-animate="fade-left">01</span>
+                        <h3 data-animate="fade-left">Install</h3>
+                        <p data-animate="fade-left">
+                            Add AuthConfirm to your JavaScript project
+                            and include its stylesheet.
+                        </p>
+                    </article>
+
+
+                    <article class="step" data-animate="blur-in">
+                        <span data-animate="fade-left">02</span>
+                        <h3 data-animate="fade-left">Configure</h3>
+                        <p data-animate="fade-left">
+                            Create an instance and connect its callbacks
+                            to your backend operations.
+                        </p>
+                    </article>
+
+
+                    <article class="step" data-animate="blur-in">
+                        <span data-animate="fade-left">03</span>
+                        <h3 data-animate="fade-left">Integrate</h3>
+                        <p data-animate="fade-left">
+                            Trigger confirmation dialogs and OTP
+                            verification wherever you need them.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Code Example -->
+<!-- Code Examples -->
+<section class="section" id="example">
+
+    <div class="container">
+
+        <!-- Section Heading -->
+        <div class="section-heading example-heading">
+
+            <span class="eyebrow">DEVELOPER FRIENDLY</span>
+
+            <h2>Simple API. Clean integration.</h2>
+
+            <p>
+                Connect AuthConfirm to your existing backend
+                without changing your application's architecture.
+            </p>
+
+        </div>
+
+
+        <!-- Code Grid -->
+        <div class="example-grid">
+
+            <!-- JavaScript Code -->
+            <article class="code-card" data-animate="fade-left">
+
+                <div class="code-header">
+                    <span>JavaScript</span>
+                    <span>Frontend Integration</span>
+                </div>
+
+                <pre class="code-content"><code>import {
+    createAuthConfirm
+} from "./src/auth-confirm.js";
+
+const auth = createAuthConfirm({
+
+    theme: "auto",
+
+    primaryColor: "#078b4d",
+
+    onConfirm: async (action, { signal }) => {
+
+        const response = await fetch(
+            `/api/${action}.php`,
+            {
+                method: "POST",
+                signal
+            }
+        );
+
+        return response.ok;
+    }
+
+});
+
+await auth.confirmLogin();</code></pre>
+
+            </article>
+
+
+            <!-- PHP Code -->
+            <article class="code-card" data-animate="fade-right">
+
+                <div class="code-header">
+                    <span>PHP</span>
+                    <span>Backend Integration</span>
+                </div>
+
+                <pre class="code-content"><code>&lt;?php
+
+session_start();
+
+header("Content-Type: application/json");
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(405);
+    exit;
+}
+
+$action = basename(
+    $_SERVER["SCRIPT_NAME"],
+    ".php"
+);
+
+if ($action === "login") {
+
+    // Validate user credentials here.
+
+    $_SESSION["user"] = [
+        "id" => 1,
+        "name" => "John Doe"
+    ];
+
+} elseif ($action === "logout") {
+
+    session_unset();
+    session_destroy();
+
+} else {
+
+    http_response_code(400);
+
+    echo json_encode([
+        "success" => false
+    ]);
+
+    exit;
+}
+
+echo json_encode([
+    "success" => true
+]);</code></pre>
+
+            </article>
+
+
+            <!-- Customization Showcase -->
+            <article class="code-card showcase-card" data-animate="fade-up">
+
+                <div class="code-header showcase-header">
+
+                    <div>
+                        <span>AUTHCONFIRM SHOWCASE</span>
+                        <small>Explore customizable usages</small>
+                    </div>
+
+                    <div class="showcase-controls">
+
+                        <button
+                            type="button"
+                            class="showcase-control"
+                            id="codePrev"
+                            aria-label="Previous example"
+                        >
+                            &#8592;
+                        </button>
+
+                        <span id="codeSlideCount">01 / 04</span>
+
+                        <button
+                            type="button"
+                            class="showcase-control"
+                            id="codeNext"
+                            aria-label="Next example"
+                        >
+                            &#8594;
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="showcase-window">
+
+                    <div class="showcase-track" id="showcaseTrack">
+
+
+                        <!-- Slide 1 -->
+                        <div class="showcase-slide">
+
+                            <div class="showcase-slide-heading">
+                                <span>01</span>
+                                <h3>Custom Login Confirmation</h3>
+                            </div>
+
+                            <pre class="code-content"><code>await auth.confirmLogin({
+
+    title: "Welcome Back!",
+
+    message: "Ready to continue?",
+
+    success: {
+        title: "Login Successful",
+        message: "Welcome back to your account.",
+        confirmText: "Continue"
+    }
+
+});</code></pre>
+
+                        </div>
+
+
+                        <!-- Slide 2 -->
+                        <div class="showcase-slide">
+
+                            <div class="showcase-slide-heading">
+                                <span>02</span>
+                                <h3>OTP Verification</h3>
+                            </div>
+
+                            <pre class="code-content"><code>await auth.confirmOtp({
+
+    title: "Verify Your Account",
+
+    message: "Enter the code sent to your email.",
+
+    length: 6,
+
+    resendDelay: 30,
+
+    onVerify: async (code, { signal }) => {
+
+        const response = await fetch("/api/verify-otp.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ code }),
+            signal
+        });
+
+        return response.json();
+    }
+
+});</code></pre>
+
+                        </div>
+
+
+                        <!-- Slide 3 -->
+                        <div class="showcase-slide">
+
+                            <div class="showcase-slide-heading">
+                                <span>03</span>
+                                <h3>Theme Customization</h3>
+                            </div>
+
+                            <pre class="code-content"><code>const auth = createAuthConfirm({
+
+    theme: "dark",
+
+    primaryColor: "#078b4d",
+
+    confirmation: {
+        timeout: 15000
+    }
+
+});
+
+// Change theme whenever needed.
+auth.setTheme("light");
+
+// Update primary colour.
+auth.setPrimaryColor("#2563eb");</code></pre>
+
+                        </div>
+
+
+                        <!-- Slide 4 -->
+                        <div class="showcase-slide">
+
+                            <div class="showcase-slide-heading">
+                                <span>04</span>
+                                <h3>Standalone Success Notification</h3>
+                            </div>
+
+                            <pre class="code-content"><code>auth.showSuccess({
+
+    title: "Profile Updated!",
+
+    message: "Your changes have been saved.",
+
+    confirmText: "Great!",
+
+    onClose: () => {
+        console.log("Success notification closed.");
+    }
+
+});</code></pre>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide Indicators -->
+                <div class="showcase-dots" id="showcaseDots">
+
+                    <button class="active" aria-label="Go to example 1"></button>
+                    <button aria-label="Go to example 2"></button>
+                    <button aria-label="Go to example 3"></button>
+                    <button aria-label="Go to example 4"></button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- CTA -->
+        <section class="cta-section" id="get-started">
+
+            <div class="container cta-content" data-animate="fade-up">
+
+                <span class="eyebrow">AUTHCONFIRM V1.1.0</span>
+
+                <h2>Make authentication interactions better.</h2>
+
+                <p>
+                    Start integrating reusable confirmation dialogs
+                    and OTP verification into your next project.
+                </p>
+
+                <a href="README.md" class="btn btn-light" data-animate="fade-up">
+                    Read Documentation
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer" data-animate="fade-up">
+
+        <div class="container footer-content">
+
+            <a href="#" class="logo" data-animate="fade-left">
+                <span class="logo-icon">A</span>
+                AuthConfirm
+            </a>
+
+            <p>
+                Lightweight authentication interactions
+                for modern JavaScript applications.
+            </p>
+
+            <div class="footer-bottom">
+
+                <span>
+                    © <span id="year"></span> AuthConfirm.
+                    All rights reserved.
+                </span>
+
+                <span>Version 1.1.0</span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="assets/js/landing.js"></script>
+
+</body>
+</html>
