@@ -1,5 +1,5 @@
 /* =========================================
-   RESET & GLOBAL VARIABLES
+RESET & GLOBAL VARIABLES
 ========================================= */
 
 * {
@@ -28,6 +28,7 @@
     --code-background: #14221a;
     --code-text: #e8f5ed;
     --code-muted: #a9c2b1;
+
 }
 
 html[data-theme="dark"] {
@@ -48,6 +49,7 @@ html[data-theme="dark"] {
     --code-background: #080e19;
     --code-text: #e8f5ed;
     --code-muted: #a9c2b1;
+
 }
 
 html {
@@ -60,9 +62,11 @@ body {
     background: var(--background);
     color: var(--text);
     line-height: 1.6;
+
     transition:
         background-color 0.25s ease,
         color 0.25s ease;
+
 }
 
 a {
@@ -72,6 +76,12 @@ a {
 
 button {
     font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #00a96b;
+    outline-offset: 4px;
 }
 
 .container {
@@ -85,7 +95,7 @@ section {
 }
 
 /* =========================================
-   NAVIGATION
+NAVIGATION
 ========================================= */
 
 .header {
@@ -97,6 +107,7 @@ section {
     z-index: 100;
 
     transition: background-color 0.25s ease;
+
 }
 
 .navbar {
@@ -105,6 +116,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .logo {
@@ -114,6 +126,7 @@ section {
 
     font-size: 20px;
     font-weight: 800;
+
 }
 
 .logo-icon {
@@ -127,6 +140,7 @@ section {
     place-items: center;
 
     border-radius: 10px;
+
 }
 
 .version {
@@ -152,34 +166,45 @@ section {
 }
 
 .nav-links .nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 160px;
+
     background: var(--primary);
     color: #fff;
 
     padding: 12px 20px;
     border-radius: 8px;
+
+    text-align: center;
+
+}
+
+.nav-links .nav-button:hover {
+    background: var(--primary-dark);
+    color: #fff;
 }
 
 .menu-toggle {
     display: none;
-
     border: 0;
     background: none;
-
     font-size: 24px;
     color: var(--text);
-
     cursor: pointer;
 }
 
-
 /* =========================================
-   BUTTONS
+BUTTONS
 ========================================= */
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
 
     padding: 12px 20px;
 
@@ -189,6 +214,7 @@ section {
     font-weight: 700;
 
     transition: 0.2s ease;
+
 }
 
 .btn-primary {
@@ -217,22 +243,30 @@ section {
     color: var(--primary-dark);
 }
 
+.btn-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
 
 /* =========================================
-   HERO SECTION
+HERO SECTION
 ========================================= */
 
 .hero {
     position: relative;
     padding: 100px 0;
+
     background:
-    linear-gradient(
-        90deg,
-        var(--background) 0%,
-        color-mix(in srgb, var(--background) 85%, transparent) 45%,
-        color-mix(in srgb, var(--background) 15%, transparent) 100%
-    ),
-    url("/auth-confirm-v1.1.0/assets/images/authconfirm-hero-bg.png");
+        linear-gradient(90deg,
+            var(--background) 0%,
+            color-mix(in srgb, var(--background) 85%, transparent) 45%,
+            color-mix(in srgb, var(--background) 15%, transparent) 100%),
+        url("../images/authconfirm-hero-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
 .hero-content {
@@ -241,6 +275,7 @@ section {
 
     align-items: center;
     gap: 70px;
+
 }
 
 .eyebrow {
@@ -253,6 +288,7 @@ section {
     letter-spacing: 2px;
 
     margin-bottom: 18px;
+
 }
 
 .hero h1 {
@@ -261,18 +297,20 @@ section {
     letter-spacing: -2px;
 
     margin-bottom: 22px;
+
 }
 
 .hero h1 span {
     color: var(--primary);
 }
 
-.hero-text > p {
+.hero-text>p {
     max-width: 550px;
 
     color: var(--muted);
     font-size: 16px;
     margin-bottom: 28px;
+
 }
 
 .hero-actions {
@@ -281,28 +319,73 @@ section {
     gap: 12px;
 }
 
+.hero-actions>.btn-outline svg {
+    flex-shrink: 0;
+}
+
 .hero-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 18px;
+
     margin-top: 30px;
+
     font-size: 12px;
     color: var(--muted);
+
 }
 
+/* =========================================
+HERO INSTALLATION COMMAND
+========================================= */
+
+.hero-install {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.hero-install span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hero-install code {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+
+    padding: 12px 16px;
+
+    background: var(--code-background);
+    color: var(--code-text);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+
+}
 
 /* =========================================
-   HERO PREVIEW CARD
+HERO PREVIEW CARD
 ========================================= */
 
 .hero-card {
     background: var(--surface);
+
     padding: 28px;
+
     border-radius: 18px;
     border: 1px solid var(--border);
-    box-shadow: 0 25px 70px rgba(10, 70, 35, 0.10);
+
+    box-shadow: 0 25px 70px rgba(10, 70, 35, 0.1);
+
     text-align: center;
-    opacity: 1;
+
 }
 
 .card-header {
@@ -310,29 +393,40 @@ section {
     align-items: center;
     justify-content: center;
     gap: 8px;
+
     color: var(--muted);
     font-size: 12px;
+
     margin-bottom: 35px;
+
 }
 
 .status-dot {
     width: 8px;
     height: 8px;
+
     background: #16a765;
     border-radius: 50%;
+
 }
 
 .preview-icon {
     width: 65px;
     height: 65px;
+
     background: var(--primary-light);
     color: var(--primary);
+
     display: grid;
     place-items: center;
+
     border-radius: 50%;
+
     font-size: 32px;
     font-weight: bold;
+
     margin: auto auto 20px;
+
 }
 
 .hero-card h3 {
@@ -343,7 +437,6 @@ section {
 .hero-card p {
     color: var(--muted);
     font-size: 14px;
-
     margin-bottom: 25px;
 }
 
@@ -358,6 +451,7 @@ section {
     color: #fff;
 
     font-weight: bold;
+
 }
 
 .preview-footer {
@@ -365,11 +459,11 @@ section {
 
     font-size: 12px;
     color: #9aa79f;
+
 }
 
-
 /* =========================================
-   GENERAL SECTIONS
+GENERAL SECTIONS
 ========================================= */
 
 .section {
@@ -398,72 +492,131 @@ section {
     color: var(--muted);
 }
 
-
 /* =========================================
-   FEATURES
+FEATURES
 ========================================= */
+
+.features-section {
+    position: relative;
+    overflow: hidden;
+}
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
 }
 
 .feature-card {
-    padding: 28px;
+    position: relative;
+    overflow: hidden;
+
+    padding: 30px;
+
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: 16px;
+
     background: var(--surface);
-    transition: 0.2s ease;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+.feature-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: var(--primary);
+
+    transition: width 0.3s ease;
+
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    border-color: #a8d8bb;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+    transform: translateY(-7px);
+
+    border-color: var(--primary);
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+
+}
+
+.feature-card:hover::before {
+    width: 100%;
 }
 
 .feature-icon {
-    width: 43px;
-    height: 43px;
+    width: 50px;
+    height: 50px;
+
     display: grid;
     place-items: center;
-    border-radius: 11px;
+
+    margin-bottom: 22px;
+
+    border-radius: 13px;
+
     background: var(--primary-light);
     color: var(--primary);
-    font-size: 24px;
-    margin-bottom: 20px;
+
+}
+
+.feature-icon svg {
+    width: 25px;
+    height: 25px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
 }
 
 .feature-card h3 {
     margin-bottom: 10px;
-    font-size: 16px;
+
+    font-size: 17px;
+    font-weight: 700;
+
 }
 
 .feature-card p {
-    font-size: 14px;
     color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.8;
+
 }
 
-
 /* =========================================
-   STEPS
+STEPS
 ========================================= */
 
 .steps {
     position: relative;
+
     background-image:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             color-mix(in srgb, var(--background) 94%, transparent) 0%,
             color-mix(in srgb, var(--background) 85%, transparent) 45%,
-            color-mix(in srgb, var(--background) 40%, transparent) 100%
-        ),
-        url("/auth-confirm-v1.1.0/assets/images/authconfirm-hero-bg2.png");
+            color-mix(in srgb, var(--background) 40%, transparent) 100%),
+        url("../images/authconfirm-hero-bg2.png");
+
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
+
 }
 
 .steps-grid {
@@ -474,11 +627,14 @@ section {
 
 .step {
     padding: 24px;
+
     border-left: 2px solid var(--primary);
+
     backdrop-filter: blur(2px);
+
 }
 
-.step > span {
+.step>span {
     color: var(--primary);
     font-weight: 800;
     font-size: 14px;
@@ -494,14 +650,12 @@ section {
 }
 
 /* =========================================
-   CODE EXAMPLE SECTION
+CODE EXAMPLE SECTION
 ========================================= */
 
 .example-heading {
     max-width: 700px;
-
     text-align: center;
-
     margin: 0 auto 45px;
 }
 
@@ -513,8 +667,6 @@ section {
     color: var(--muted);
 }
 
-/* Main three-card layout */
-
 .example-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -522,19 +674,22 @@ section {
     align-items: stretch;
 }
 
-
 /* =========================================
-   CODE CARDS
+CODE CARDS
 ========================================= */
 
 .code-card {
     min-width: 0;
     overflow: hidden;
+
     border: 1px solid #304137;
     border-radius: 14px;
+
     background: var(--code-background);
     color: var(--code-text);
+
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+
 }
 
 .code-header {
@@ -542,11 +697,15 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+
     padding: 16px 20px;
+
     border-bottom: 1px solid #304137;
+
     font-size: 16px;
     font-weight: 600;
     color: var(--code-text);
+
 }
 
 .code-header span:last-child {
@@ -557,17 +716,23 @@ section {
 .code-content {
     display: block;
     width: 100%;
+    min-width: 0;
+
     margin: 0;
     padding: 22px;
+
     overflow-x: auto;
     white-space: pre;
     overflow-wrap: normal;
+
     color: var(--code-text);
     background: var(--code-background);
+
     font-family: "Courier New", monospace;
     font-size: 14px;
-    line-height: 1.2;
-    tab-size: 2;
+    line-height: 1.5;
+    tab-size: 4;
+
 }
 
 .code-content code {
@@ -575,52 +740,19 @@ section {
     color: inherit;
 }
 
-
-/* Animated code cursor */
-
-#animatedCode {
-    display: inline;
-}
-
-#animatedCode::after {
-    content: "";
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    margin-left: 3px;
-    background: #00d9a5;
-    vertical-align: middle;
-    animation: codeCursor 0.8s steps(1) infinite;
-}
-
-#animatedCode.typing-complete::after {
-    display: none;
-}
-
-@keyframes codeCursor {
-    50% {
-        opacity: 0;
-    }
-}
-
-
 /* =========================================
-   CUSTOMIZATION SHOWCASE
+CUSTOMIZATION SHOWCASE
 ========================================= */
-
-/* Third card spans the complete grid width */
 
 .showcase-card {
     grid-column: 1 / -1;
 }
 
-/* Showcase header */
-
 .showcase-header {
     padding: 18px 22px;
 }
 
-.showcase-header > div:first-child {
+.showcase-header>div:first-child {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -631,9 +763,6 @@ section {
     font-size: 14px;
     font-weight: 400;
 }
-
-
-/* Showcase navigation controls */
 
 .showcase-controls {
     display: flex;
@@ -649,15 +778,20 @@ section {
 .showcase-control {
     width: 35px;
     height: 35px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     border: 1px solid #405348;
     border-radius: 50%;
+
     background: #1b3024;
     color: var(--code-text);
+
     cursor: pointer;
     transition: 0.2s ease;
+
 }
 
 .showcase-control:hover {
@@ -672,9 +806,6 @@ section {
     outline-offset: 3px;
 }
 
-
-/* Sliding window */
-
 .showcase-window {
     width: 100%;
     overflow: hidden;
@@ -685,6 +816,7 @@ section {
     width: 100%;
 
     transition: transform 0.6s ease-in-out;
+
 }
 
 .showcase-slide {
@@ -692,10 +824,8 @@ section {
     min-width: 0;
 
     padding: 24px 28px;
+
 }
-
-
-/* Slide heading */
 
 .showcase-slide-heading {
     display: flex;
@@ -703,6 +833,7 @@ section {
     gap: 12px;
 
     margin-bottom: 16px;
+
 }
 
 .showcase-slide-heading span {
@@ -720,26 +851,22 @@ section {
 
     font-size: 12px;
     font-weight: 700;
+
 }
 
 .showcase-slide-heading h3 {
     margin: 0;
-
     color: var(--code-text);
-
     font-size: 16px;
 }
-
-/* Inner code area */
 
 .showcase-slide .code-content {
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.15);
 }
 
-
 /* =========================================
-   SHOWCASE SLIDE INDICATORS
+SHOWCASE SLIDE INDICATORS
 ========================================= */
 
 .showcase-dots {
@@ -748,63 +875,63 @@ section {
     justify-content: center;
 
     gap: 8px;
-
     padding: 18px;
+
 }
 
 .showcase-dots button {
     width: 8px;
     height: 8px;
-
     padding: 0;
 
     border: 0;
     border-radius: 50%;
 
     background: var(--code-muted);
-
     opacity: 0.35;
 
     cursor: pointer;
-
     transition: 0.3s ease;
+
 }
 
 .showcase-dots button.active {
     width: 24px;
-
     border-radius: 10px;
-
     background: #00d9a5;
-
     opacity: 1;
 }
 
-
 /* =========================================
-   CTA SECTION
+CTA SECTION
 ========================================= */
 
 .cta-section {
     position: relative;
     isolation: isolate;
+
     background: var(--primary);
     color: #fff;
+
     padding: 100px 0;
     text-align: center;
+
 }
 
-/* Background image and transparency */
 .cta-section::before {
     content: "";
+
     position: absolute;
     inset: 0;
-    background-image: url("/auth-confirm-v1.1.0/assets/images/authconfirm-hero-bg2.png");
+
+    background-image: url("../images/authconfirm-hero-bg2.png");
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
-    opacity: 0.4; /* image transparency */
+
+    opacity: 0.25;
     z-index: -1;
+
 }
 
 .cta-content {
@@ -819,7 +946,6 @@ section {
 .cta-section h2 {
     font-size: clamp(30px, 4vw, 42px);
     line-height: 1.2;
-
     margin-bottom: 15px;
 }
 
@@ -828,51 +954,49 @@ section {
     margin-bottom: 28px;
 }
 
-
 /* =========================================
-   FOOTER
+FOOTER
 ========================================= */
 
 .footer {
     padding: 45px 0 20px;
-
     background: #14221a;
     color: #fff;
 }
 
-.footer-content > p {
+.footer-content>p {
     margin: 15px 0 35px;
-
     max-width: 400px;
 
     color: #a9b8af;
     font-size: 13px;
+
 }
 
 .footer-bottom {
     padding-top: 20px;
-
     border-top: 1px solid #304137;
 
     display: flex;
     justify-content: space-between;
-
     gap: 15px;
 
     color: #a9b8af;
     font-size: 12px;
+
 }
 
-
 /* =========================================
-   THEME TOGGLE
+THEME TOGGLE
 ========================================= */
 
 .theme-toggle {
-    width: 42px;
-    height: 42px;
+    width: 45px;
+    height: 45px;
 
     display: inline-flex;
+    padding: 5px;
+
     align-items: center;
     justify-content: center;
 
@@ -883,8 +1007,8 @@ section {
     color: var(--text);
 
     cursor: pointer;
-
     transition: 0.2s ease;
+
 }
 
 .theme-toggle:hover {
@@ -893,8 +1017,8 @@ section {
 }
 
 .theme-toggle svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 
     fill: none;
     stroke: currentColor;
@@ -902,6 +1026,7 @@ section {
     stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
+
 }
 
 .moon-icon {
@@ -916,16 +1041,189 @@ html[data-theme="dark"] .moon-icon {
     display: block;
 }
 
+/* =========================================
+INSTALLATION CARD
+========================================= */
+
+.installation-card {
+    max-width: 750px;
+    margin: 65px auto 0;
+    padding: 30px;
+
+    background: var(--background);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+
+}
+
+.installation-info {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.installation-info .eyebrow {
+    margin-bottom: 10px;
+}
+
+.installation-info h3 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.installation-info p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.install-command {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 15px 18px;
+
+    background: var(--code-background);
+    border-radius: 10px;
+
+}
+
+.install-command code {
+    color: var(--code-text);
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.install-command code span {
+    color: #16c784;
+}
+
+.copy-install {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    border: 1px solid #405348;
+    border-radius: 7px;
+
+    background: #1b3024;
+    color: #fff;
+
+    font-size: 12px;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+    flex-shrink: 0;
+
+}
+
+.copy-install:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.copy-install svg {
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+}
+
+.install-note {
+    margin-top: 12px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
 
 /* =========================================
-   SCROLL ANIMATION SYSTEM
+CODE COPY BUTTONS
+========================================= */
+
+.code-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.code-wrapper .code-content {
+    width: 100%;
+    min-width: 0;
+    padding-top: 48px;
+}
+
+.code-copy {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border: 1px solid #405348;
+    border-radius: 7px;
+
+    background: #1b3024;
+    color: #fff;
+
+    font-size: 11px;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+.code-copy:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.code-copy svg {
+    width: 14px;
+    height: 14px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+}
+
+.code-copy:focus-visible,
+.copy-install:focus-visible,
+.theme-toggle:focus-visible,
+.menu-toggle:focus-visible {
+    outline: 2px solid #00d9a5;
+    outline-offset: 3px;
+}
+
+/* =========================================
+SCROLL ANIMATION SYSTEM
 ========================================= */
 
 [data-animate] {
     opacity: 1;
 }
-
-/* Only hide elements when JavaScript is active */
 
 .js-motion [data-animate] {
     opacity: 0;
@@ -934,17 +1232,14 @@ html[data-theme="dark"] .moon-icon {
         opacity 0.8s ease,
         transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
         filter 0.8s ease;
+
 }
 
 .js-motion [data-animate].is-visible {
     opacity: 1;
-
     transform: none;
     filter: none;
 }
-
-
-/* Fade animations */
 
 .js-motion [data-animate="fade-up"] {
     transform: translateY(45px);
@@ -962,9 +1257,6 @@ html[data-theme="dark"] .moon-icon {
     transform: translateX(45px);
 }
 
-
-/* Zoom animations */
-
 .js-motion [data-animate="zoom-in"] {
     transform: scale(0.85);
 }
@@ -973,41 +1265,23 @@ html[data-theme="dark"] .moon-icon {
     transform: scale(1.15);
 }
 
-
-/* Flip animation */
-
 .js-motion [data-animate="flip-up"] {
     transform: perspective(800px) rotateX(15deg) translateY(30px);
     transform-origin: bottom;
 }
-
-
-/* Blur animation */
 
 .js-motion [data-animate="blur-in"] {
     filter: blur(12px);
     transform: translateY(20px);
 }
 
-
-/* Staggered children */
-
-.js-motion [data-stagger] > * {
+.js-motion [data-stagger]>* {
     transition-delay: var(--stagger-delay, 0ms);
 }
 
 /* =========================================
-   DARK MODE CORRECTIONS
+DARK MODE CORRECTIONS
 ========================================= */
-
-html[data-theme="dark"] .feature-card {
-    background: var(--surface);
-    border-color: var(--border);
-}
-
-html[data-theme="dark"] .feature-card:hover {
-    border-color: var(--primary);
-}
 
 html[data-theme="dark"] .hero-card {
     background: var(--surface);
@@ -1038,7 +1312,7 @@ html[data-theme="dark"] .footer {
     background: #080e19;
 }
 
-html[data-theme="dark"] .footer-content > p {
+html[data-theme="dark"] .footer-content>p {
     color: var(--muted);
 }
 
@@ -1053,13 +1327,16 @@ html[data-theme="dark"] .theme-toggle {
     border-color: var(--border);
 }
 
+html[data-theme="dark"] .installation-card {
+    background: var(--surface);
+    border-color: var(--border);
+}
 
 /* =========================================
-   RESPONSIVE DESIGN
+RESPONSIVE DESIGN
 ========================================= */
 
 @media (max-width: 800px) {
-
     .hero-content {
         grid-template-columns: 1fr;
         gap: 45px;
@@ -1075,30 +1352,7 @@ html[data-theme="dark"] .theme-toggle {
 
 }
 
-
-@media (max-width: 600px) {
-.hero {
-    background:
-        linear-gradient(
-            var(--background),
-            color-mix(in srgb, var(--background) 88%, transparent)
-        ),
-        url("../images/authconfirm-hero-bg.png");
-
-    background-size: cover;
-    background-position: 65% center;
-}
-
-        .steps {
-        background-position: center;
-        background-size: cover;
-    }
-}
-
-/* Tablet and smaller screens */
-
 @media (max-width: 768px) {
-
     .example-grid {
         grid-template-columns: 1fr;
     }
@@ -1118,11 +1372,9 @@ html[data-theme="dark"] .theme-toggle {
 
 }
 
-
-/* Mobile navigation */
+/* MOBILE NAVIGATION */
 
 @media (max-width: 600px) {
-
     .menu-toggle {
         display: block;
     }
@@ -1155,11 +1407,25 @@ html[data-theme="dark"] .theme-toggle {
     }
 
     .nav-links .nav-button {
+        width: 100%;
         text-align: center;
+    }
+
+    .theme-toggle {
+        align-self: flex-start;
     }
 
     .hero {
         padding: 65px 0;
+
+        background:
+            linear-gradient(var(--background),
+                color-mix(in srgb, var(--background) 88%, transparent)),
+            url("../images/authconfirm-hero-bg.png");
+
+        background-size: cover;
+        background-position: 65% center;
+        background-repeat: no-repeat;
     }
 
     .hero h1 {
@@ -1184,13 +1450,34 @@ html[data-theme="dark"] .theme-toggle {
         flex-direction: column;
     }
 
+    .installation-card {
+        padding: 20px;
+        margin-top: 45px;
+    }
+
+    .install-command {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .install-command code {
+        font-size: 12px;
+    }
+
+    .copy-install {
+        align-self: flex-end;
+    }
+
+    .steps {
+        background-position: center;
+        background-size: cover;
+    }
+
 }
 
-
-/* Smaller mobile screens */
+/* SMALLER MOBILE SCREENS */
 
 @media (max-width: 480px) {
-
     .showcase-header {
         align-items: flex-start;
         gap: 12px;
@@ -1213,21 +1500,39 @@ html[data-theme="dark"] .theme-toggle {
         font-size: 11px;
     }
 
+    .code-wrapper .code-content {
+        padding-top: 48px;
+    }
+
+    .hero-card {
+        padding: 22px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .version {
+        font-size: 10px;
+    }
+
 }
 
-
 /* =========================================
-   ACCESSIBILITY: REDUCED MOTION
+ACCESSIBILITY: REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
     html {
         scroll-behavior: auto;
     }
 
-    #animatedCode::after {
-        animation: none;
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 
     .js-motion [data-animate] {
